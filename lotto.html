@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lotto</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="number in myNumbers">{{ number }}</li>
+    </ul>
+    <button @click="getNumbers">Get Lotto</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const vue = new Vue({
+      el: "#app",
+      data: {
+        numbers: _.range(1, 46),
+        myNumbers: [],
+      },
+      methods: {
+        getNumbers() {
+          // numbers에서 랜덤으로 6개 추출
+          this.myNumbers = _.sampleSize(this.numbers, 6)
+          // 정렬
+          this.myNumbers.sort((a, b) => a - b)
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
