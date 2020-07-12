@@ -1,7 +1,7 @@
 <template>
   <div class="video-search">
-		<h2>Video Search Page</h2>
 		<div>
+			<h1>유튜브 검색</h1>
 			<label for="inputText"></label>
 			<input @keypress.enter="onClikSearch" type="text" id="inputText" v-model="inputText">
 		</div>
@@ -26,8 +26,8 @@ export default {
 </script>
 
 <style scoped>
-	div.video-search {
+	/* div.video-search {
 		border: 1px solid blue;
 		background-color: yellow;
-	}
+	} */
 </style>

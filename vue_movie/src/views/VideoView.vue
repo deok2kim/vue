@@ -1,8 +1,7 @@
 <template>
   <div class="video-view">
-    <h1>This is an Video page</h1>
     <VideoSearch @search-video="onSearchVideo" />
-    <VideoItem />
+    <VideoItem :videos="videos" />
   </div>
 </template>
 
@@ -35,6 +34,7 @@ export default {
       }
       axios.get(YOUTUBE_URL, {params})
         .then((res) => {
+          console.log('비디오찾기')
           this.videos = res.data.items
         })
         .catch(err => console.log(err))
@@ -44,8 +44,8 @@ export default {
 </script>
 
 <style scoped>
-  div.video-view {
+  /* div.video-view {
     background-color: ghostwhite;
     border: 1px solid red;
-  }
+  } */
 </style>
