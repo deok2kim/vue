@@ -1,7 +1,9 @@
 <template>
   <div class="video-item-detail">
 		<h2>{{ video.snippet.title }}</h2>
-		<iframe class="video-frame" :src="videoUrl"></iframe> <br>
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe class="embed-responsive-item" :src="videoUrl" allowfullscreen></iframe>
+		</div>
   </div>
 </template>
 
@@ -11,9 +13,9 @@ export default {
 	props: {
 		video: Object
 	},
-	data() {
-		return {
-			videoUrl: `https://www.youtube.com/embed/${this.video.id.videoId}`
+	computed: {
+		videoUrl() {
+			return `https://www.youtube.com/embed/${this.video.id.videoId}`
 		}
 	}
 }
@@ -26,8 +28,8 @@ export default {
 		margin: 2px;
 		padding: 2px;
 	} */
-	.video-frame {
+	/* .video-frame {
 		width: 75vw;
 		height: 50vh;
-	}
+	} */
 </style>
